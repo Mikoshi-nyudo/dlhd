@@ -76,7 +76,6 @@ def filter_and_build_epg(urls):
 
 
 urls = [
-    "http://m3u4u.com/xml/5g28nezee8sv3dk7yzpe",
     "https://epgshare01.online/epgshare01/epg_ripper_AR1.xml.gz",
     "https://epgshare01.online/epgshare01/epg_ripper_AU1.xml.gz",
     "https://epgshare01.online/epgshare01/epg_ripper_BEIN1.xml.gz",
@@ -114,6 +113,7 @@ urls = [
     "https://epgshare01.online/epgshare01/epg_ripper_US_LOCALS2.xml.gz",
     "https://epgshare01.online/epgshare01/epg_ripper_UY1.xml.gz",
     "https://epgshare01.online/epgshare01/epg_ripper_ZA1.xml.gz",
+    "https://epgshare01.online/epgshare01/epg_ripper_PLEX1.xml.gz",
 ]
 
 if __name__ == "__main__":
