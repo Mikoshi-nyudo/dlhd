@@ -31,6 +31,7 @@ CBS.Sports.Network.USA.us
 CBS.(WCBS).New.York,.NY.us
 Channel4.uk
 Channel.5.uk
+Chicago.Sports.Network.us
 Cinemax.-.Eastern.Feed.us
 CleoTV.us
 CMT.US.-.Eastern.Feed.us
@@ -156,7 +157,6 @@ MUTV.HD.uk
 National.Geographic.US.-.Eastern.us
 National.Geographic.Wild.us
 NBA.TV.USA.us
-NBC.Chicago.(Live.Stream).us
 NBC.Sports.Bay.Area.us
 NBC.Sports.Boston.us
 NBC.Sports.California.us
@@ -237,7 +237,7 @@ Sky.Sport.9.nz
 SkySportsArena.uk
 Sky.Sport.Select.nz
 SkySportsPremierLeague.uk
-SkySp.Racing.uk
+SkySp.Racing.HD.uk
 SkySp.Tennis.HD.uk
 Sky.Thriller.HD.uk
 Sky.Witness.HD.uk
