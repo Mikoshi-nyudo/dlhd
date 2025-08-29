@@ -3,15 +3,10 @@ import gzip
 import xml.etree.ElementTree as ET
 import requests
 
-name = "daddylive-channels"
 save_as_gz = True  
 
 output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "epgs")
 os.makedirs(output_dir, exist_ok=True)  
-
-tvg_ids_file = os.path.join(os.path.dirname(__file__), f"{name}-tvg-ids.txt")
-output_file = os.path.join(output_dir, f"{name}-epg.xml")
-output_file_gz = output_file + '.gz'
 
 def fetch_and_extract_xml(url):
     response = requests.get(url)
@@ -33,7 +28,7 @@ def fetch_and_extract_xml(url):
             print(f"Failed to parse XML from {url}: {e}")
             return None
 
-def filter_and_build_epg(urls):
+def filter_and_build_epg(urls, tvg_ids_file, output_file, output_file_gz):
     with open(tvg_ids_file, 'r') as file:
         valid_tvg_ids = set(line.strip() for line in file)
 
@@ -58,7 +53,7 @@ def filter_and_build_epg(urls):
                 if title is not None:
                     title_text = title.text if title is not None else 'No title'
 
-                    if title_text == 'NHL Hockey' or title_text == 'Live: NFL Football':
+                    if title_text in ('NHL Hockey', 'Live: NFL Football'):
                         subtitle = programme.find('sub-title')
                         subtitle_text = subtitle.text if subtitle else 'No subtitle'
                         programme.find('title').text = title_text + " " + subtitle_text
@@ -117,4 +112,12 @@ urls = [
 ]
 
 if __name__ == "__main__":
-    filter_and_build_epg(urls)
+    names = ["daddylive-channels", "daddylive-ltd-channels"]
+
+    for name in names:
+        tvg_ids_file = os.path.join(os.path.dirname(__file__), f"{name}-tvg-ids.txt")
+        output_file = os.path.join(output_dir, f"{name}-epg.xml")
+        output_file_gz = output_file + '.gz'
+
+        print(f"\n=== Processing {name} ===")
+        filter_and_build_epg(urls, tvg_ids_file, output_file, output_file_gz)
